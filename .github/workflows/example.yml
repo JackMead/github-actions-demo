@@ -4,8 +4,10 @@ on:
 
 jobs:
     jobConditional:
+        env:
+            SECRET_EXISTS: ${{ secrets.SECRET_EXISTS }}
         runs-on: ubuntu-latest
-        if: ${{ secrets.SECRET_EXISTS != ''}}
+        if: ${{ env.SECRET_EXISTS != '' }}
         steps:
             - run: echo "This ran"
     stepConditional:
